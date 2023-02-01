@@ -1,4 +1,4 @@
-# QuantumSelfDriving
+# Quantum Self Driving Project --> UCI Quantum Computing Club
 
 ## Project Overview
 Implementing a Variatonal Quantum Circuit along with a Machine Learning Approach for a simple steering angle correction model for self driving cars
