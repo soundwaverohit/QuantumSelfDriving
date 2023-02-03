@@ -25,6 +25,9 @@ Design and implement a Variational Quantum Algorithm alongside a classical Machi
 3. After initial development, combine CNN and VQA, and fine-tune the model
 4. Import the model and work with vehicle-environment simulations (e.g., CARLA, AirSim) and test hybrid model in the environment. 
 
+## Project Architecture
+![Image](<img width="745" alt="VQCNN_arch" src="https://user-images.githubusercontent.com/69136009/216571716-4833eac4-31f0-456f-8304-be5fe9d3ca75.png">.png)
+
 ## Communication Tools: 
 * Check Asana for tasks of the project
 * Utilize GitHub for project code updates
