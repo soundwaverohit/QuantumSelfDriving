@@ -2,7 +2,7 @@
 (Quantum Computing @ UCI)
 
 ## Goal
-Implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
+Design and implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
 
 ## Motivation
 * Existing classical deep neural networks yield good performance
@@ -10,13 +10,19 @@ Implement a Variational Quantum Algorithm alongside a classical Machine Learning
 * Can we harness the power of quantum computing to help increase generality and/or efficiency?
 
 ## Project Approach
-1. Build a Variatonal Quantum Circut with 4 qubits
-2. Take a set of images of cars driving on the road and label them with an appropriate steering angles for the car.
-3. Train a classical CNN model with multiple layers to predict the car's steering angle based on images
-4. Interchange the weights to a new model architecture where the dense layer changes with the Variatonal Quantum Circuit
-5. Train the quantum circuits with correct steering angles to keep the car on the road
-6. Build a simulation to show the results
+1. Dataset: 
+    a. Find a dataset which contains front-camera view of the road and corresponding steering wheel angle change to keep the car straight. 
+    b. Understand the dimensions and variety of input images
+    c. Clean and preprocess the dataset
+2. Build the Quantum and Classical Models
+    a. Group 1: Create a classical Convolutional Neural Network (CNN) to predict the vehicle's steering angle based on images
+    b. Group 2: Simultaneously build and test a Variational Quantum Algorithm (VQA) 
+        i. Use a simple existing vanilla neural network in place of the CNN
+       ii. Build various ansatze circuits and compare their performances (e.g., convergence, accuracy, loss, runtime, etc.) 
+3. After initial development, combine CNN and VQA, and fine-tune the model
+4. Import the model and work with vehicle-environment simulations (e.g., CARLA, AirSim) and test hybrid model in the environment. 
 
-
-# UCI Quantum Computing Club Members Directions: 
-Go to Asana to check tasks regarding the project or email to be added to the Asana for this project
+## Communication Tools: 
+* Check Asana for tasks of the project
+* Utilize GitHub for project code updates
+* Check Discord for updates
