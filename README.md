@@ -1,7 +1,13 @@
-# Quantum Self Driving Project --> UCI Quantum Computing Club
+# Variational Quantum Convolutional Neural Network for Image Recognition to Determine Steering Angle for Autonomous Vehicles 
+(Quantum Computing @ UCI)
 
-## Project Overview
-Implementing a Variatonal Quantum Circuit along with a Machine Learning Approach for a simple steering angle correction model for self driving cars
+## Goal
+Implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
+
+## Motivation
+* Existing classical deep neural networks yield good performance
+* Aim for more generalized models and higher efficiency while training and testing
+* Can we harness the power of quantum computing to help increase generality and/or efficiency?
 
 ## Project Approach
 1. Build a Variatonal Quantum Circut with 4 qubits
