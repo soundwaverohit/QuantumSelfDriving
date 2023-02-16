@@ -14,3 +14,11 @@ Implementing a Variatonal Quantum Circuit along with a Machine Learning Approach
 
 # UCI Quantum Computing Club Members Directions: 
 Go to Asana to check tasks regarding the project or email to be added to the Asana for this project
+
+
+# Deep Learning Neural Netwworks + Vartiatinoal Quanttum Circuit 
+
+Training models using 4 qubit HVA circuit + Deep Learnning Neural netwwrk
+
+
+

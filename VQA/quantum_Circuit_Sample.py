@@ -48,7 +48,7 @@ class VQA(object):
                 qml.RX(trained_rotations[3], wires=3)
                 qml.CNOT(wires=[0,1])
                 qml.CNOT(wires=[1, 2])
-                qml.CNOT(wires=[2, 3])
+                qml.CNOT(wires=[2, 3]) 
                 qml.RX(trained_rotations[4], wires=1)
                 qml.RX(trained_rotations[5], wires=2)
                 qml.CNOT(wires=[3,0])
@@ -63,3 +63,5 @@ class VQA(object):
             keras_layer = qml.qnn.KerasLayer(qml_circuit, weight_shapes, output_dim=n_qubits)
 
         return keras_layer
+
+    
