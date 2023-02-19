@@ -30,21 +30,11 @@ Design and implement a Variational Quantum Algorithm alongside a classical Machi
   <img src="https://user-images.githubusercontent.com/69136009/216572541-905d78ac-8088-46e0-b9a3-590c36a0bd00.png" width="745" title="VQCNN Architecture">
 </p>
 
-
-<<<<<<< HEAD
-# UCI Quantum Computing Club Members Directions: 
-Go to Asana to check tasks regarding the project or email to be added to the Asana for this project
-
-
-# Deep Learning Neural Netwworks + Vartiatinoal Quanttum Circuit 
-
+### Deep Learning Neural Networks + Variational Quantum Circuit 
 Training models using 4 qubit HVA circuit + Deep Learnning Neural netwwrk
 
-
-
-=======
 ## Communication Tools: 
-* Check Asana for tasks of the project
+* Please go to Asana to check tasks regarding the project or email us to be added to the Asana for this project
 * Utilize GitHub for project code updates
 * Check Discord for updates
->>>>>>> 8009f3ad0249a9565410ca6f247697926ea1e7b1
+   * 8009f3ad0249a9565410ca6f247697926ea1e7b1
