@@ -1,4 +1,4 @@
-from circuit_6 import circuit
+from gate_configs import circuit
 
 qc = circuit(4)
 qc.build_cascade_hadamard()
