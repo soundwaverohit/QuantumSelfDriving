@@ -14,7 +14,7 @@ class circuit:
     def __init__(self, num_of_qubits, num_of_clbits=None, list_of_parameters=None):
         self._num_of_qubits = num_of_qubits
         self.all_gate_params = {}
-        #self._gate_id = 0
+        self._gate_id = 0
             
         if num_of_clbits is None:
             num_of_clbits = num_of_qubits
@@ -23,20 +23,20 @@ class circuit:
     def build_cascade_hadamard(self):
         for idx in range(self._num_of_qubits):
             self._qc.h(idx)
-            #self._gate_id += 1
-            #self.all_gate_params['h'+str(self._gate_id)] = ''
+            self._gate_id += 1
+            self.all_gate_params['h'+str(self._gate_id)] = ''
     
     def build_cascade_rx(self):
         params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
             self._qc.rx(params[idx], idx)
-            #self._gate_id += 1
-            #self.all_gate_params['rx'+str(self._gate_id)] = params[idx]
+            self._gate_id += 1
+            self.all_gate_params['rx'+str(self._gate_id)] = params[idx]
             
     def build_cascade_rz(self):
         params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
             self._qc.rz(params[idx], idx)
-            #self._gate_id += 1
-            #self.all_gate_params['rz'+str(self._gate_id)] = params[idx]
+            self._gate_id += 1
+            self.all_gate_params['rz'+str(self._gate_id)] = params[idx]
                 
