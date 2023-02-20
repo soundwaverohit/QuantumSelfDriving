@@ -54,6 +54,18 @@ class circuit:
             temp_index_list.remove(control)
             for target in temp_index_list:
                 self._qc.cx(control, target)
+                
+    def crx_all_neighbors(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        
+        for i in range(self._num_of_qubits):
+            control = i
+            target = i+1
+            if control == self._num_of_qubits - 1:
+                target = 0
+            self._qc.crx(params[i], control, target)
+            self._gate_id += 1
+            self.all_gate_params['crx'+str(self._gate_id)] = params[i]
     
     
     
