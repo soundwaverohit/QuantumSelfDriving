@@ -45,9 +45,15 @@ class circuit:
             self._qc.cx(control, target)
         self._qc.cx(self._num_of_qubits-1, 0)
     
-    def controlled_gate_config_2(self, params=None):
-        pass 
-    
+    def cx_one_to_all(self):       
+        index_list = [i for i in range(self._num_of_qubits)]
+        
+        for j in range(self._num_of_qubits):
+            control = j
+            temp_index_list = index_list.copy()
+            temp_index_list.remove(control)
+            for target in temp_index_list:
+                self._qc.cx(control, target)
     
     
     
