@@ -66,6 +66,19 @@ class circuit:
             self._qc.crx(params[i], control, target)
             self._gate_id += 1
             self.all_gate_params['crx'+str(self._gate_id)] = params[i]
+            
+    def crx_one_to_all(self):
+        index_list = [i for i in range(self._num_of_qubits)]
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits * (self._num_of_qubits-1))]
+        
+        for j in range(self._num_of_qubits):
+            control = j
+            temp_index_list = index_list.copy()
+            temp_index_list.remove(control)
+            for target in temp_index_list:
+                self._qc.crx(params[j+target], control, target)
+                self._gate_id += 1
+                self.all_gate_params['crx'+str(self._gate_id)] = params[j+target]
     
     
     
