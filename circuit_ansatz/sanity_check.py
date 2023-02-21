@@ -20,10 +20,10 @@ qc.cx_all_neighbors()
 qc.cx_one_to_all()
 
 ## Construct an all-neighbors configuration of Controlled-RX gates
-#qc.crx_all_neighbors()
+qc.crx_all_neighbors()
 
 ## Construct an one-to-all configuration of Controlled-RX gates
-#qc.crx_one_to_all()
+qc.crx_one_to_all()
 
 ## Draw the quantum circuit
 print(qc.get_quantum_circuit().draw())
