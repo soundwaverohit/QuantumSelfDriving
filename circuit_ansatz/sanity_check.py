@@ -8,10 +8,10 @@ qc = circuit(4)
 qc.build_cascade_hadamard()
 
 ## Construct a RX-Gate Cascade
-#qc.build_cascade_rx()
+qc.build_cascade_rx()
 
 ## Construct a RZ-Gate Cascade
-#qc.build_cascade_rz()
+qc.build_cascade_rz()
 
 ## Construct an all-neighbors configuration of CNOT gates
 #qc.cx_all_neighbors()

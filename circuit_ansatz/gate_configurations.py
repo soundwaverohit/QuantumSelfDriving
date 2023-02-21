@@ -30,4 +30,18 @@ class circuit:
     def build_cascade_hadamard(self): 
         for idx in range(self._num_of_qubits): 
             self._qc.h(idx)
+            
+    def build_cascade_rx(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        for idx in range(self._num_of_qubits):
+            self._qc.rx(params[idx], idx)
+            self._gate_id += 1
+            self._all_gate_params['rx'+str(self._gate_id)] = params[idx]
+            
+    def build_cascade_rz(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        for idx in range(self._num_of_qubits):
+            self._qc.rz(params[idx], idx)
+            self._gate_id += 1
+            self._all_gate_params['rz'+str(self._gate_id)] = params[idx]
     
