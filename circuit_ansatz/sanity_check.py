@@ -17,7 +17,7 @@ qc.build_cascade_rz()
 qc.cx_all_neighbors()
 
 ## Construct an one-to-all configuration of CNOT gates
-#qc.cx_one_to_all()
+qc.cx_one_to_all()
 
 ## Construct an all-neighbors configuration of Controlled-RX gates
 #qc.crx_all_neighbors()
