@@ -1,8 +1,8 @@
 ## Imports
-#from gate_configs import circuit
+from gate_configurations import circuit
 
 ## Construct a quantum circuit with # of qubits
-#qc = circuit(4)
+qc = circuit(4)
 
 ## Construct a Walsh-Hadamard Transform (H-cascade)
 #qc.build_cascade_hadamard()
@@ -26,7 +26,7 @@
 #qc.crx_one_to_all()
 
 ## Draw the quantum circuit
-#print(qc._qc.draw())
+print(qc.get_quantum_circuit().draw())
 
 ## Print all circuit rotation parameters
-#print(qc.all_gate_params)
+print(qc.get_rotation_params())
