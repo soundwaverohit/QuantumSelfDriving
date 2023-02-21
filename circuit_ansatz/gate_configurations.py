@@ -44,4 +44,11 @@ class circuit:
             self._qc.rz(params[idx], idx)
             self._gate_id += 1
             self._all_gate_params['rz'+str(self._gate_id)] = params[idx]
+            
+    def cx_all_neighbors(self):
+        for i in range(self._num_of_qubits-1):
+            control = i
+            target = i+1
+            self._qc.cx(control, target)
+        self._qc.cx(self._num_of_qubits-1, 0)
     
