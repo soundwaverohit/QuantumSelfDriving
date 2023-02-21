@@ -5,7 +5,7 @@ from gate_configurations import circuit
 qc = circuit(4)
 
 ## Construct a Walsh-Hadamard Transform (H-cascade)
-#qc.build_cascade_hadamard()
+qc.build_cascade_hadamard()
 
 ## Construct a RX-Gate Cascade
 #qc.build_cascade_rx()

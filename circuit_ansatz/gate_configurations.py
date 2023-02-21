@@ -26,3 +26,8 @@ class circuit:
     
     def get_rotation_params(self):
         return self._all_gate_params
+    
+    def build_cascade_hadamard(self): 
+        for idx in range(self._num_of_qubits): 
+            self._qc.h(idx)
+    
