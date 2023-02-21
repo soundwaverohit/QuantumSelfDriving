@@ -91,3 +91,29 @@ class circuit:
                 self._gate_id += 1
                 self._all_gate_params['crx'+str(self._gate_id)] = params[j+target]
     
+    
+    def crz_all_neighbors(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        
+        for i in range(self._num_of_qubits):
+            control = i
+            target = i+1
+            if control == self._num_of_qubits - 1:
+                target = 0
+            self._qc.crz(params[i], control, target)
+            self._gate_id += 1
+            self._all_gate_params['crz'+str(self._gate_id)] = params[i]
+            
+    def crz_one_to_all(self):
+        index_list = [i for i in range(self._num_of_qubits)]
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits * (self._num_of_qubits-1))]
+        
+        for j in range(self._num_of_qubits):
+            control = j
+            temp_index_list = index_list.copy()
+            temp_index_list.remove(control)
+            for target in temp_index_list:
+                self._qc.crz(params[j+target], control, target)
+                self._gate_id += 1
+                self._all_gate_params['crz'+str(self._gate_id)] = params[j+target]
+    
