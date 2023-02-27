@@ -27,10 +27,12 @@ class circuit:
     def get_rotation_params(self):
         return self._all_gate_params
     
+    # applies the hadamard gate to every qubit
     def build_cascade_hadamard(self): 
         for idx in range(self._num_of_qubits): 
             self._qc.h(idx)
             
+    # applies the rx gate to every qubit        
     def build_cascade_rx(self):
         params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
@@ -38,15 +40,16 @@ class circuit:
             self._gate_id += 1
             self._all_gate_params['rx'+str(self._gate_id)] = params[idx]
             
+    # applies the rz gate to every qubit        
     def build_cascade_rz(self):
         params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
             self._qc.rz(params[idx], idx)
             self._gate_id += 1
             self._all_gate_params['rz'+str(self._gate_id)] = params[idx]
-            
+           
     def cx_all_neighbors(self):
-        for i in range(self._num_of_qubits-1):
+        for i in range(self._num_of_qubits):
             control = i
             target = i+1
             
@@ -54,6 +57,12 @@ class circuit:
             if control == self._num_of_qubits - 1:
                 target = 0
                 
+            self._qc.cx(control, target)
+            
+    def cx_almost_all_neighbors(self):
+        for i in range(self._num_of_qubits-1):
+            control = i
+            target = i+1                
             self._qc.cx(control, target)
         
     def cx_one_to_all(self):       
@@ -74,6 +83,16 @@ class circuit:
             target = i+1
             if control == self._num_of_qubits - 1:
                 target = 0
+            self._qc.crx(params[i], control, target)
+            self._gate_id += 1
+            self._all_gate_params['crx'+str(self._gate_id)] = params[i]
+            
+    def crx_almost_all_neighbors(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        
+        for i in range(self._num_of_qubits - 1):
+            control = i
+            target = i+1
             self._qc.crx(params[i], control, target)
             self._gate_id += 1
             self._all_gate_params['crx'+str(self._gate_id)] = params[i]
@@ -100,6 +119,16 @@ class circuit:
             target = i+1
             if control == self._num_of_qubits - 1:
                 target = 0
+            self._qc.crz(params[i], control, target)
+            self._gate_id += 1
+            self._all_gate_params['crz'+str(self._gate_id)] = params[i]
+            
+    def crz_almost_all_neighbors(self):
+        params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
+        
+        for i in range(self._num_of_qubits - 1):
+            control = i
+            target = i+1
             self._qc.crz(params[i], control, target)
             self._gate_id += 1
             self._all_gate_params['crz'+str(self._gate_id)] = params[i]
