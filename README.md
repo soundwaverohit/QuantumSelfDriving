@@ -3,6 +3,8 @@
 ### Members
 * Rohit Ganti
 * Diptanshu Sikdar
+* Stuart 
+* Brendan 
 
 ## Goal
 Design and implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
