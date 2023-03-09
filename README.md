@@ -3,7 +3,7 @@
 ### Members
 * Rohit Ganti
 * Diptanshu Sikdar
-* Stuart 
+* Stewart 
 * Brendan 
 
 ## Goal
