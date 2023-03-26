@@ -2,7 +2,6 @@
 
 # Importing standard Qiskit libraries
 from qiskit import QuantumCircuit, transpile, Aer, IBMQ, assemble, execute, QuantumRegister, ClassicalRegister
-from qiskit.tools.jupyter import *
 from qiskit.visualization import *
 
 # Importing other libraries
