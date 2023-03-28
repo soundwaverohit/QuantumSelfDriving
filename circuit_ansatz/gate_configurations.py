@@ -34,7 +34,7 @@ class circuit:
             params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
             self._qc.rx(params[idx], idx)
-            self._all_gate_params['rx'+str(self._gate_id)] = params[idx]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[idx]
             self._gate_id += 1
             
     # applies the rz gate to every qubit        
@@ -43,7 +43,7 @@ class circuit:
             params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         for idx in range(self._num_of_qubits):
             self._qc.rz(params[idx], idx)
-            self._all_gate_params['rz'+str(self._gate_id)] = params[idx]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[idx]
             self._gate_id += 1
            
     def cx_all_neighbors(self):
@@ -83,7 +83,7 @@ class circuit:
             if control == self._num_of_qubits - 1:
                 target = 0
             self._qc.crx(params[i], control, target)
-            self._all_gate_params['crx'+str(self._gate_id)] = params[i]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[i]
             self._gate_id += 1
             
     def crx_almost_all_neighbors(self, params=None):
@@ -94,7 +94,7 @@ class circuit:
             control = i
             target = i+1
             self._qc.crx(params[i], control, target)
-            self._all_gate_params['crx'+str(self._gate_id)] = params[i]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[i]
             self._gate_id += 1
             
     def crx_one_to_all(self, params=None):
@@ -108,7 +108,7 @@ class circuit:
             temp_index_list.remove(control)
             for target in temp_index_list:
                 self._qc.crx(params[j+target], control, target)
-                self._all_gate_params['crx'+str(self._gate_id)] = params[j+target]
+                self._all_gate_params['weights_'+str(self._gate_id)] = params[j+target]
                 self._gate_id += 1
     
     def crz_all_neighbors(self, params=None):
@@ -121,7 +121,7 @@ class circuit:
             if control == self._num_of_qubits - 1:
                 target = 0
             self._qc.crz(params[i], control, target)
-            self._all_gate_params['crz'+str(self._gate_id)] = params[i]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[i]
             self._gate_id += 1
             
     def crz_almost_all_neighbors(self, params=None):
@@ -132,7 +132,7 @@ class circuit:
             control = i
             target = i+1
             self._qc.crz(params[i], control, target)
-            self._all_gate_params['crz'+str(self._gate_id)] = params[i]
+            self._all_gate_params['weights_'+str(self._gate_id)] = params[i]
             self._gate_id += 1
             
     def crz_one_to_all(self, params=None):
@@ -146,6 +146,6 @@ class circuit:
             temp_index_list.remove(control)
             for target in temp_index_list:
                 self._qc.crz(params[j+target], control, target)
-                self._all_gate_params['crz'+str(self._gate_id)] = params[j+target]
+                self._all_gate_params['weights_'+str(self._gate_id)] = params[j+target]
                 self._gate_id += 1
     
