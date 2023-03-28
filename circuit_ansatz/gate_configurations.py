@@ -13,7 +13,6 @@ class circuit:
         self._all_gate_params = {}
         if rotation_params != None:
             self._all_gate_params = rotation_params 
-        #self._random_params = [random.uniform(0, 2*np.pi) for i in range(self._num_of_qubits)]
         
         self._gate_id = 0 
         
