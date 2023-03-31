@@ -15,6 +15,12 @@ def quantum_black_box(weights, n_qubits):
         qml.RY(weights[idx], wires=idx)
 '''
 
+# Data Encoding #
+# ------------- #
+def data_encoding(inputs):
+    for index, data_input in enumerate(inputs):
+        qml.RX(data_input, wires=index)
+
 
 # Non-parameterized Unary Gate Cascade Arrangements #
 # ------------------------------------------------- #
