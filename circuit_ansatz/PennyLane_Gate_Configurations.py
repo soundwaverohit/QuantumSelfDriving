@@ -39,7 +39,7 @@ def build_cascade_rx(weights, n_qubits):
         qml.RX(weights[idx], wires=idx)
 
 # applies the RY gate to every qubit  
-def build_cascade_rx(weights, n_qubits):
+def build_cascade_ry(weights, n_qubits):
     for idx in range(n_qubits):
         qml.RY(weights[idx], wires=idx)
 
