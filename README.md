@@ -40,3 +40,8 @@ Training models using 4 qubit HVA circuit + Deep Learnning Neural netwwrk
 * Utilize GitHub for project code updates
 * Check Discord for updates
    * 8009f3ad0249a9565410ca6f247697926ea1e7b1
+
+
+### Environment Activations
+* Once you clone the repository make sure to activate the environment with the following command "source env/bin/activate" 
+* Once that is done make sure to reinstall the libraries by using the following command in the virstual environment "python3 -m pip install -r requirements.txt" (Make sure your pip is upgraded)
