@@ -50,6 +50,12 @@ b_conv5 = bias_variable([64])
 
 h_conv5 = tf.nn.relu(conv2d(h_conv4, W_conv5, 1) + b_conv5)
 
+
+#6th quantum layer
+#h_conv6=
+
+
+
 #FCL 1
 W_fc1 = weight_variable([1152, 1164])
 b_fc1 = bias_variable([1164])
@@ -89,3 +95,4 @@ W_fc5 = weight_variable([10, 1])
 b_fc5 = bias_variable([1])
 
 y = tf.multiply(tf.atan(tf.matmul(h_fc4_drop, W_fc5) + b_fc5), 2) #scale the atan output
+
