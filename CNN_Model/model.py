@@ -50,6 +50,19 @@ b_conv5 = bias_variable([64])
 
 h_conv5 = tf.nn.relu(conv2d(h_conv4, W_conv5, 1) + b_conv5)
 
+# Get the shape of the weights in each layer
+weights_shapes = [W_conv1.get_shape().as_list(), W_conv2.get_shape().as_list(),
+                  W_conv3.get_shape().as_list(), W_conv4.get_shape().as_list(),
+                  W_conv5.get_shape().as_list()]
+
+# Calculate the total number of weights
+total_weights = 0
+for shape in weights_shapes:
+    layer_weights = shape[0] * shape[1] * shape[2] * shape[3]
+    total_weights += layer_weights
+
+print("Total number of weights after h_conv5:", total_weights)
+
 
 #6th quantum layer
 #h_conv6=
