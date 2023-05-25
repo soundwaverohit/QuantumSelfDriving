@@ -20,6 +20,8 @@ y_ = tf.placeholder(tf.float32, shape=[None, 1])
 
 x_image = x
 
+# ARYA TODO: FOR EVERY H_CONV LAYER, ADD A PRINT STATEMENT AFTER EVERY H_CONV AND FC THAT PRINTS FILTER, SIZE, DEPTH, STRIDE
+
 #first convolutional layer
 W_conv1 = weight_variable([5, 5, 3, 24])
 b_conv1 = bias_variable([24])
@@ -66,7 +68,6 @@ print("Total number of weights after h_conv5:", total_weights)
 
 #6th quantum layer
 #h_conv6=
-
 
 
 #FCL 1
