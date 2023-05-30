@@ -17,7 +17,7 @@ saver = tf.train.Saver()
 saver.restore(sess, "/app/quantumselfdriving/CNN_Model/save/model.ckpt")
 
 # Load steering wheel image
-img = cv2.imread('steering_wheel_image.jpg', 0)
+img = cv2.imread('/app/quantumselfdriving/CNN_Model/steering_wheel_image.jpg', 0)
 rows, cols = img.shape
 
 # Initialize variables
