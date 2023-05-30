@@ -1,2 +1,1 @@
-opencv-python-headless==4.5.4.60
-python3-opencv
+opencv-python
