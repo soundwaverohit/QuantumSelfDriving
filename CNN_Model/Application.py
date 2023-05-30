@@ -30,7 +30,7 @@ simulation_frame = st.empty()
 simulation_frame1= st.empty()
 angle_text = st.empty()
 # Main simulation loop
-while True:
+while st.button("Start"):
     # Read and preprocess the image
     full_image = cv2.imread("/app/quantumselfdriving/Images/driving_dataset/" + str(i) + ".jpg")
     image = cv2.resize(full_image[-150:], (200, 66)) / 255.0
