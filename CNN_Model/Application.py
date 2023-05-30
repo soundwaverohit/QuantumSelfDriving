@@ -32,7 +32,7 @@ angle_text = st.empty()
 # Main simulation loop
 while True:
     # Read and preprocess the image
-    full_image = cv2.imread("driving_dataset/" + str(i) + ".jpg")
+    full_image = cv2.imread("/app/quantumselfdriving/Images/driving_dataset/" + str(i) + ".jpg")
     image = cv2.resize(full_image[-150:], (200, 66)) / 255.0
     
     # Predict the steering angle
