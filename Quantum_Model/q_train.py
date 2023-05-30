@@ -4,8 +4,8 @@ tf.config.run_functions_eagerly(True)
 
 tf.disable_v2_behavior()
 from tensorflow.core.protobuf import saver_pb2
-import driving_data
-import model
+from CNN_Model import driving_data
+from CNN_Model import model
 import pennylane as qml
 from pennylane import numpy as np
 
