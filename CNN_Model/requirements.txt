@@ -1,4 +1,4 @@
-python -m pip install --upgrade pip
+/home/appuser/venv/bin/python -m pip install --upgrade pip
 streamlit
 absl-py==1.4.0
 altair==4.2.2
