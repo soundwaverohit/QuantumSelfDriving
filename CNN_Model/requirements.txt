@@ -1,5 +1,5 @@
-opencv-python
-streamlit
+opencv-python==4.7.0.72
+opencv-python-headless==4.7.0.72
 absl-py==1.4.0
 appdirs==1.4.4
 astunparse==1.6.3
