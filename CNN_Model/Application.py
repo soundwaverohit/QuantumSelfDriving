@@ -59,5 +59,5 @@ while True:
     i += 1
 
     # Check if 'q' key is pressed to stop the simulation
-    if cv2.waitKey(10) == ord('q'):
-        break
+    #if cv2.waitKey(10) == ord('q'):
+     #   break
