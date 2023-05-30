@@ -14,7 +14,7 @@ if os.name == 'nt':
 # Load TensorFlow model
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/model.ckpt")
+saver.restore(sess, "/app/quantumselfdriving/CNN_Model/save/model.ckpt")
 
 # Load steering wheel image
 img = cv2.imread('steering_wheel_image.jpg', 0)
