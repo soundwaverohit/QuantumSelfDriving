@@ -1,3 +1,4 @@
+opencv-python-headless
 absl-py==1.4.0
 appdirs==1.4.4
 astunparse==1.6.3
