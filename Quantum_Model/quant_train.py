@@ -33,7 +33,7 @@ for epoch in range(epochs):
         if i % batch_size == 0:
             if not os.path.exists(LOGDIR):
                 os.makedirs(LOGDIR)
-            checkpoint_path = os.path.join(LOGDIR, "sample_circuit7.ckpt") #the file name must be changed every time we run with a new circuit 
+            checkpoint_path = os.path.join(LOGDIR, "sample_circuit9.ckpt") #the file name must be changed every time we run with a new circuit 
             filename = saver.save(sess, checkpoint_path)
 
     print("Model saved in file: %s" % filename)
