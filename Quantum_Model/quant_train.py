@@ -2,7 +2,7 @@ import os
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 from tensorflow.core.protobuf import saver_pb2
-from Images import driving_data
+import driving_data
 from quantum_model import x, y_, loss, optimizer
 
 LOGDIR = './save'
@@ -33,10 +33,13 @@ for epoch in range(epochs):
         if i % batch_size == 0:
             if not os.path.exists(LOGDIR):
                 os.makedirs(LOGDIR)
-            checkpoint_path = os.path.join(LOGDIR, "QUAntmodel.ckpt")
+            checkpoint_path = os.path.join(LOGDIR, "model2.ckpt")
             filename = saver.save(sess, checkpoint_path)
+
     print("Model saved in file: %s" % filename)
 
 print("Run the command line:\n" \
       "--> tensorboard --logdir=./logs " \
       "\nThen open http://0.0.0.0:6006/ in your web browser")
+
+
