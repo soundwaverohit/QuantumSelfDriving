@@ -41,7 +41,7 @@ def classical_cnn(x):
     h_conv5 = tf.nn.relu(conv2d(h_conv4, W_conv5, 1) + b_conv5)
 
     # Flatten
-    h_conv5_flat = tf.reshape(h_conv5, [-1, 1152])
+    h_conv5_flat = tf.reshape(h_conv5, [-1, 4])   #the shapes must match here 
 
     return h_conv5_flat
 
@@ -61,12 +61,17 @@ def variational_quantum_circuit(inputs, weights):
 x = tf.placeholder(tf.float32, shape=[None, 66, 200, 3])
 y_ = tf.placeholder(tf.float32, shape=[None, 1])
 
+keep_prob = tf.placeholder(tf.float32)
+
 # Classical CNN
 classical_output = classical_cnn(x)
+print(classical_output.shape)
+
 # Variational Quantum Circuit
 num_weights = 4  # Number of weights in the VQC
 weights = tf.Variable(tf.random.uniform(shape=[num_weights, 3],
                                         minval=0, maxval=2 * 3.14159, dtype=tf.float32))
+print(weights.shape)
 quantum_output = variational_quantum_circuit(classical_output, weights)
 
 # Reshape quantum_output tensor
