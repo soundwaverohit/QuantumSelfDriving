@@ -12,7 +12,7 @@ if os.name == 'nt':
 
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/sample_circuit2.ckpt")
+saver.restore(sess, "save/sample_circuit7.ckpt")
 
 img = cv2.imread('../CNN_Model/steering_wheel_image.jpg',0)
 rows,cols = img.shape

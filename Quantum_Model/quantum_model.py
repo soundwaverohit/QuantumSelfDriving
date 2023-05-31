@@ -68,7 +68,8 @@ def variational_quantum_circuit(inputs, weights):
     return circuit(inputs, weights)
 
 
-"""
+sample circuit 2
+
 def variational_quantum_circuit(inputs, weights):
     dev = qml.device("default.qubit", wires=4)
 
@@ -89,6 +90,142 @@ def variational_quantum_circuit(inputs, weights):
         return [qml.expval(qml.PauliZ(i)) for i in range(4)]
 
     return circuit(inputs, weights)
+
+
+sample circuit 3
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Perception
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+
+        # Decision-making
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+        
+        for i in range(4):
+            qml.RY(weights[i][1], wires=i)
+
+        # Control
+        for i in range(3):
+            qml.CNOT(wires=[i, i+1])
+        
+        # Measurement
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+
+
+    
+sample circuit 4
+
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Circuit 1: Quantum feature encoding
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+        
+        # Circuit 2: Quantum image processing
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+        for i in range(4):
+            qml.RY(weights[i][1], wires=i)
+        
+        # Circuit 3: Measurement
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+
+
+sample circuit 5
+
+
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Circuit 1: Perception
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+
+        # Circuit 2: Decision-making
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+        
+        # Circuit 3: Control
+        for i in range(4):
+            qml.RY(weights[i][1], wires=i)
+        
+        # Circuit 4: Interaction with environment
+        qml.CNOT(wires=[0, 1])
+        qml.CNOT(wires=[1, 2])
+        qml.CNOT(wires=[2, 3])
+        qml.CNOT(wires=[3, 0])
+
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+
+
+sample circuit 6:
+
+
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Circuit 1: Encode inputs
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+        
+        # Circuit 2: Learnable weights for decision-making
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+            qml.RY(weights[i][1], wires=i)
+        
+        # Circuit 3: Decision-making and output
+        qml.CNOT(wires=[0, 1])
+        qml.CNOT(wires=[1, 2])
+        qml.CNOT(wires=[2, 3])
+        
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+"""
+
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Circuit 1 - Sensing
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+        
+        # Circuit 2 - Decision-making
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+        
+        # Circuit 3 - Control
+        for i in range(4):
+            qml.RY(weights[i][1], wires=i)
+        
+        # Circuit 4 - Additional functionality for self-driving car
+        for i in range(4):
+            qml.RZ(weights[i][2], wires=i)
+        
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+
 
 
 
