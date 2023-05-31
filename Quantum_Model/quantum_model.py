@@ -1,6 +1,8 @@
 import tensorflow.compat.v1 as tf
 import pennylane as qml
 
+import numpy as np
+
 tf.disable_v2_behavior()
 
 def weight_variable(shape):
@@ -45,6 +47,13 @@ def classical_cnn(x):
 
     return h_conv5_flat
 
+
+
+"""
+VARIATIONAL QUANTUM CIRCUIT : To change depending on the circuit we are trying
+
+Original template sample_circuit1
+
 def variational_quantum_circuit(inputs, weights):
     dev = qml.device("default.qubit", wires=4)
 
@@ -57,6 +66,31 @@ def variational_quantum_circuit(inputs, weights):
         return [qml.expval(qml.PauliZ(i)) for i in range(4)]
 
     return circuit(inputs, weights)
+
+
+"""
+def variational_quantum_circuit(inputs, weights):
+    dev = qml.device("default.qubit", wires=4)
+
+    @qml.qnode(dev)
+    def circuit(inputs, weights):
+        # Circuit 1
+        for i in range(4):
+            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
+        
+        # Circuit 2
+        for i in range(4):
+            qml.RX(weights[i][0], wires=i)
+        
+        # Circuit 3
+        for i in range(4):
+            qml.RY(weights[i][1], wires=i)
+        
+        return [qml.expval(qml.PauliZ(i)) for i in range(4)]
+
+    return circuit(inputs, weights)
+
+
 
 x = tf.placeholder(tf.float32, shape=[None, 66, 200, 3])
 y_ = tf.placeholder(tf.float32, shape=[None, 1])
@@ -73,10 +107,13 @@ weights = tf.Variable(tf.random.uniform(shape=[num_weights, 3],
                                         minval=0, maxval=2 * 3.14159, dtype=tf.float32))
 print(weights.shape)
 quantum_output = variational_quantum_circuit(classical_output, weights)
-
+print("VARIATIONAL QUANTUM CIRUIT ")
+#print(qml.draw(quantum_output))
 # Reshape quantum_output tensor
 quantum_output_reshaped = tf.cast(quantum_output, tf.float32)  # Cast quantum_output to float32
 quantum_output_reshaped = tf.reshape(quantum_output_reshaped, [-1, num_weights])
+
+
 
 # Fully connected layer
 W_fc = weight_variable([num_weights, 1])

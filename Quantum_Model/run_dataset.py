@@ -12,9 +12,9 @@ if os.name == 'nt':
 
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/model2.ckpt")
+saver.restore(sess, "save/sample_circuit2.ckpt")
 
-img = cv2.imread('steering_wheel_image.jpg',0)
+img = cv2.imread('../CNN_Model/steering_wheel_image.jpg',0)
 rows,cols = img.shape
 
 
@@ -23,7 +23,7 @@ smoothed_angle = 0
 
 i = 0
 while(cv2.waitKey(10) != ord('q')):
-    full_image = cv2.imread("driving_dataset/" + str(i) + ".jpg")
+    full_image = cv2.imread("../Images/driving_dataset/" + str(i) + ".jpg")
     image = cv2.resize(full_image[-150:], (200, 66)) / 255.0
     degrees = model.y.eval(feed_dict={model.x: [image], model.keep_prob: 1.0})[0][0] * 180.0 / 3.14159265
     if not windows:
