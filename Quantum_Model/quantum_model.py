@@ -52,9 +52,9 @@ def classical_cnn(x):
 VARIATIONAL QUANTUM CIRCUIT : To change depending on the circuit we are trying
 '''
 
-trained_rotations = [0.294, 0.212, 0.0129, 0.778, 0.773, -0.386, 0.77, -0.0472]
+# trained_rotations = [0.294, 0.212, 0.0129, 0.778, 0.773, -0.386, 0.77, -0.0472]
 def variational_quantum_circuit(inputs, weights):
-    return circuits.circuit9(inputs, weights)
+    return circuits.circuit6(inputs, weights)
 
 x = tf.placeholder(tf.float32, shape=[None, 66, 200, 3])
 y_ = tf.placeholder(tf.float32, shape=[None, 1])
@@ -76,8 +76,6 @@ print("VARIATIONAL QUANTUM CIRUIT ")
 # Reshape quantum_output tensor
 quantum_output_reshaped = tf.cast(quantum_output, tf.float32)  # Cast quantum_output to float32
 quantum_output_reshaped = tf.reshape(quantum_output_reshaped, [-1, num_weights])
-
-
 
 # Fully connected layer
 W_fc = weight_variable([num_weights, 1])

@@ -7,3 +7,4 @@ __pycache__
 /venv
 /share
 /etc
+CNN_Model/logs
