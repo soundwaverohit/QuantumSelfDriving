@@ -32,6 +32,4 @@ while(cv2.waitKey(10) != ord('q')):
     cv2.imshow("steering wheel", dst)
     i += 1
 
-
-
 cv2.destroyAllWindows()
