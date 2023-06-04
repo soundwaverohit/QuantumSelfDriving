@@ -11,7 +11,7 @@ if os.name == 'nt':
     windows = True
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/model.ckpt")
+saver.restore(sess, "save/modellong2.ckpt")
 img = cv2.imread('steering_wheel_image.jpg',0)
 rows,cols = img.shape
 smoothed_angle = 0

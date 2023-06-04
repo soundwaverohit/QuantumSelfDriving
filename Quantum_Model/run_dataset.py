@@ -12,7 +12,7 @@ if os.name == 'nt':
 
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/sample_circuit9.ckpt")
+saver.restore(sess, "save/rot_tries/circuit13.ckpt")
 
 img = cv2.imread('../CNN_Model/steering_wheel_image.jpg',0)
 rows,cols = img.shape
@@ -23,12 +23,14 @@ smoothed_angle = 0
 
 i = 0
 while(cv2.waitKey(10) != ord('q')):
+    print(i)
     full_image = cv2.imread("../Images/driving_dataset/" + str(i) + ".jpg")
     image = cv2.resize(full_image[-150:], (200, 66)) / 255.0
     degrees = model.y.eval(feed_dict={model.x: [image], model.keep_prob: 1.0})[0][0] * 180.0 / 3.14159265
     if not windows:
         call("clear")
     print("Predicted steering angle: " + str(degrees) + " degrees")
+    print(i)
     cv2.imshow("frame", full_image)
     #make smooth angle transitions by turning the steering wheel based on the difference of the current angle
     #and the predicted angle

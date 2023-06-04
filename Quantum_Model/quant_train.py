@@ -5,7 +5,7 @@ from tensorflow.core.protobuf import saver_pb2
 import driving_data
 from quantum_model import x, y_, loss, optimizer
 
-LOGDIR = './save'
+LOGDIR = './save/rot_tries'
 sess = tf.InteractiveSession()
 init = tf.global_variables_initializer()
 
@@ -15,7 +15,7 @@ saver = tf.train.Saver(write_version=saver_pb2.SaverDef.V2)
 logs_path = './logs'
 summary_writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())
 
-epochs = 30
+epochs = 5
 batch_size = 100
 sess.run(init)
 # Train over the dataset for 30 epochs
@@ -33,7 +33,7 @@ for epoch in range(epochs):
         if i % batch_size == 0:
             if not os.path.exists(LOGDIR):
                 os.makedirs(LOGDIR)
-            checkpoint_path = os.path.join(LOGDIR, "sample_circuit9.ckpt") #the file name must be changed every time we run with a new circuit 
+            checkpoint_path = os.path.join(LOGDIR, "circuit14.ckpt") #the file name must be changed every time we run with a new circuit 
             filename = saver.save(sess, checkpoint_path)
 
     print("Model saved in file: %s" % filename)
