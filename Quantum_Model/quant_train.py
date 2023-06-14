@@ -15,7 +15,7 @@ saver = tf.train.Saver(write_version=saver_pb2.SaverDef.V2)
 logs_path = './logs'
 summary_writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())
 
-epochs = 5
+epochs = 100
 batch_size = 100
 sess.run(init)
 # Train over the dataset for 30 epochs
@@ -33,7 +33,7 @@ for epoch in range(epochs):
         if i % batch_size == 0:
             if not os.path.exists(LOGDIR):
                 os.makedirs(LOGDIR)
-            checkpoint_path = os.path.join(LOGDIR, "circuit14.ckpt") #the file name must be changed every time we run with a new circuit 
+            checkpoint_path = os.path.join(LOGDIR, "circuit22.ckpt") #the file name must be changed every time we run with a new circuit 
             filename = saver.save(sess, checkpoint_path)
 
     print("Model saved in file: %s" % filename)

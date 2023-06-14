@@ -1,2 +1,2 @@
-model_checkpoint_path: "modellong2.ckpt"
-all_model_checkpoint_paths: "modellong2.ckpt"
+model_checkpoint_path: "modellong3.ckpt"
+all_model_checkpoint_paths: "modellong3.ckpt"
