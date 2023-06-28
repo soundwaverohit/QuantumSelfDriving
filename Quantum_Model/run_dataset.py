@@ -12,11 +12,10 @@ if os.name == 'nt':
 
 sess = tf.InteractiveSession()
 saver = tf.train.Saver()
-saver.restore(sess, "save/rot_tries/circuit22.ckpt")
+saver.restore(sess, "save/rot_tries/circuit26.ckpt")
 
 img = cv2.imread('../CNN_Model/steering_wheel_image.jpg',0)
 rows,cols = img.shape
-
 
 
 smoothed_angle = 0

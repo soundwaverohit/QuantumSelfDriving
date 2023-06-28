@@ -15,7 +15,7 @@ saver = tf.train.Saver(write_version=saver_pb2.SaverDef.V2)
 logs_path = './logs'
 summary_writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())
 
-epochs = 100
+epochs = 30
 batch_size = 100
 sess.run(init)
 # Train over the dataset for 30 epochs
@@ -30,10 +30,11 @@ for epoch in range(epochs):
         summary.value.add(tag='loss', simple_value=loss_value)
         summary_writer.add_summary(summary, epoch * driving_data.num_images / batch_size + i)
 
+
         if i % batch_size == 0:
             if not os.path.exists(LOGDIR):
                 os.makedirs(LOGDIR)
-            checkpoint_path = os.path.join(LOGDIR, "circuit22.ckpt") #the file name must be changed every time we run with a new circuit 
+            checkpoint_path = os.path.join(LOGDIR, "circuit27.ckpt") #the file name must be changed every time we run with a new circuit 
             filename = saver.save(sess, checkpoint_path)
 
     print("Model saved in file: %s" % filename)
@@ -41,5 +42,7 @@ for epoch in range(epochs):
 print("Run the command line:\n" \
       "--> tensorboard --logdir=./logs " \
       "\nThen open http://0.0.0.0:6006/ in your web browser")
+
+
 
 

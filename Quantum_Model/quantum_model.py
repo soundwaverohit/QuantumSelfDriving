@@ -535,32 +535,19 @@ def variational_quantum_circuit(inputs, weights):
     @qml.qnode(dev)
     def circuit(inputs, weights):
         #qml.templates.AngleEmbedding(inputs, wires=range(4))
+        wires=[0, 1, 2,3]
+
+        for layer in range(4):
+            for qubit in range(4):
+                qml.Rot(inputs[layer * 4 + qubit][0],
+                     inputs[layer * 4 + qubit][1],
+                     inputs[layer * 4 + qubit][2], wires=wires[qubit])
+
+            for qubit in range(4 - 1):
+                qml.CNOT(wires=[wires[qubit], wires[qubit + 1]])
+
 
         
-        # Circuit 2 - Decision-making
-        for i in range(4):
-            qml.RX(inputs[i][0], wires=i)
-            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
-            qml.CNOT(wires=[0, 1])
-
-            #qml.CNOT(wires=[3, 0])
-        
-        # Circuit 3 - Control
-        for i in range(4):
-            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
-            qml.CNOT(wires=[0, 1])
-            qml.CNOT(wires=[1, 2])
-        
-        
-        # Circuit 4 - Additional functionality for self-driving car
-        for i in range(4):
-            qml.RZ(weights[i][2], wires=i)
-            qml.Rot(inputs[i][0], inputs[i][1], inputs[i][2], wires=i)
-            qml.CNOT(wires=[0, 1])
-            qml.CNOT(wires=[1, 2])
-            qml.CNOT(wires=[2, 3])
-            qml.CNOT(wires= [3,0])
-
         return [qml.expval(qml.PauliZ(i)) for i in range(4)]
 
     return circuit(inputs, weights)
