@@ -3,6 +3,7 @@
 ### Members
 * Rohit Ganti
 * Diptanshu Sikdar
+* Arya Mhaiskar
 * Stewart 
 * Brendan 
 
