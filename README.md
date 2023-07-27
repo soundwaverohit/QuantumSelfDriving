@@ -5,7 +5,7 @@
 * Diptanshu Sikdar
 * Arya Mhaiskar
 * Stewart 
-* Brendan
+* Brendan 
 * Husain Wafaie
 
 ## Goal
