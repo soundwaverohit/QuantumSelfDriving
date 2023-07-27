@@ -5,7 +5,8 @@
 * Diptanshu Sikdar
 * Arya Mhaiskar
 * Stewart 
-* Brendan 
+* Brendan
+* Husain Wafaie
 
 ## Goal
 Design and implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
