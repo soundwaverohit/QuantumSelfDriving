@@ -52,5 +52,6 @@ urllib3==1.26.15
 pydot
 Werkzeug==2.2.3
 zipp==3.15.0
+keras
 qiskit
 streamlit-ws-localstorage
