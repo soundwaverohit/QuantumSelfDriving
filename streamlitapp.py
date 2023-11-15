@@ -15,7 +15,6 @@ import io
 from tensorflow.keras.utils import plot_model
 import subprocess
 from tensorflow.keras.callbacks import Callback
-import cv2
 import os
 
 
