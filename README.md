@@ -1,5 +1,15 @@
 # Variational Quantum Convolutional Neural Network for Image Recognition to Determine Steering Angle for Autonomous Vehicles 
 
+###By Quantum Computing @ UCI Club
+
+####Members
+Rohit Ganti
+Diptanshu Sikdar
+Arya Mhaiskar
+Stewart
+Brendan
+Husain Wafaie
+
 ## Goal
 Design and implement a Variational Quantum Algorithm alongside a classical Machine Learning model to determine the steering angle correction for self-driving vehicles
 
