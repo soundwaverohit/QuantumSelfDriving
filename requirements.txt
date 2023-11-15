@@ -56,3 +56,4 @@ keras
 qiskit
 streamlit-ws-localstorage
 tensorflow
+opencv-python
