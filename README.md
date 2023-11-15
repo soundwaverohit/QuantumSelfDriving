@@ -3,7 +3,8 @@
 ### By Quantum Computing @ UCI Club
 
 #### Members
-Rohit Ganti
+# Lead (founder) Rohit Ganti
+
 Diptanshu Sikdar
 Arya Mhaiskar
 Stewart
