@@ -49,5 +49,6 @@ tensorboard-plugin-wit==1.8.1
 toml==0.10.2
 tzdata==2023.3
 urllib3==1.26.15
+pydot
 Werkzeug==2.2.3
 zipp==3.15.0
