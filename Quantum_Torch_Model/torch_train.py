@@ -67,6 +67,6 @@ for epoch in range(num_epochs):
         if i % 100 == 0:  # Adjust print frequency as needed
             print(f'Epoch: {epoch + 1}, Batch: {i // batch_size + 1}, Loss: {running_loss / (i // batch_size + 1):.3f}')
 
-print('Finished Training')
+print('Finished Training and saved at: ', savedir)
 
 torch.save(model.state_dict(), savedir)
