@@ -1,25 +1,54 @@
 import torch
 import cv2
-from quantum_torch_model import QuantumModel  # Replace with your actual model file
-import driving_data  # Import driving_data
+import numpy as np
+from quantum_torch_model import QuantumModel  # Replace with your model file
+import os
+from subprocess import call
 
 def main():
-    # Load the model
-    model = QuantumModel()
-    model.eval()  # Set the model to evaluation mode
+    # Check if on Windows OS
+    windows = False
+    if os.name == 'nt':
+        windows = True
+    # Initialize the model
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = QuantumModel().to(device)
+    model.load_state_dict(torch.load('quantum_model.pth'))
+    model.eval()
 
-    # Load and preprocess an image
-    img_path = 'steering_wheel.jpg'  # Replace with your image path
-    img = cv2.imread(img_path)
-    img = cv2.resize(img[-150:], (200, 66)) / 255.0  # Resize and normalize
+    img = cv2.imread('steering_wheel_image.jpg', 0)
 
-    # Convert to a tensor and add a batch dimension
-    img_tensor = torch.tensor(img, dtype=torch.float32).permute(2, 0, 1).unsqueeze(0)  # Permute to [C, H, W] and add batch dimension
+    rows, cols = img.shape
 
-    # Pass the image tensor to the model
-    with torch.no_grad():
-        output = model(img_tensor)
-        print("Model output:", output)
+    smoothed_angle = 0
+    i = 0
+    while(cv2.waitKey(10) != ord('q')):
+        print(i)
+        full_image = cv2.imread("../Images/driving_dataset/" + str(i) + ".jpg")
+        image = cv2.resize(full_image[-150:], (200, 66))
+        image = image / 255.0
+        image = np.transpose(image, (2, 0, 1))
+        image = np.expand_dims(image, axis=0)
+        image_tensor = torch.tensor(image, dtype=torch.float32).to(device)
+
+        with torch.no_grad():
+            outputs = model(image_tensor).cpu().numpy()[0]
+            predicted_category = np.argmax(outputs)
+            # Assuming each category represents an equal range of angles
+            degrees = (predicted_category / len(outputs)) * 180.0
+
+            if not windows:
+                call("clear")
+            print("Predicted steering angle: " + str(degrees) + " degrees")
+            print(i)
+            cv2.imshow("frame", full_image)
+            smoothed_angle += 0.2 * pow(abs((degrees - smoothed_angle)), 2.0 / 3.0) * (degrees - smoothed_angle) / abs(degrees - smoothed_angle)
+            M = cv2.getRotationMatrix2D((cols/2, rows/2), -smoothed_angle, 1)
+            dst = cv2.warpAffine(img, M, (cols, rows))
+            cv2.imshow("steering wheel", dst)
+            i += 1
+
+    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
