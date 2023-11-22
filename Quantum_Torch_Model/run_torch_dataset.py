@@ -4,6 +4,14 @@ import numpy as np
 from quantum_torch_model import QuantumModel  # Replace with your model file
 import os
 from subprocess import call
+import argparse
+
+
+parser = argparse.ArgumentParser(description='Run a QuantumModel with custom parameters.')
+parser.add_argument('--model_name', type=str, default='quantum_model1.pth', help='Model to run')
+args = parser.parse_args()
+
+model_name= "models_saved/" +args.model_name
 
 # Check if on Windows OS
 windows = False
@@ -13,7 +21,7 @@ if os.name == 'nt':
 # Initialize the model
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = QuantumModel().to(device)
-model.load_state_dict(torch.load('quantum_model.pth'))
+model.load_state_dict(torch.load(model_name))
 model.eval()
 
 img = cv2.imread('../CNN_Model/steering_wheel_image.jpg', 0)
