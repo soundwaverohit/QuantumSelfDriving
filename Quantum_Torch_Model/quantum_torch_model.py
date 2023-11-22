@@ -34,7 +34,7 @@ class QuantumModel(nn.Module):
         # Quantum layer
         self.q_layer = quantum_layer
         # Output layer
-        self.fc3 = nn.Linear(4, 10)       # Output size depends on your application
+        self.fc3 = nn.Linear(4, 1)       # Output size depends on your application
 
     def forward(self, x):
         # [Your forward pass...]
