@@ -3,14 +3,36 @@ import torch.optim as optim
 import numpy as np
 from quantum_torch_model import QuantumModel  # Replace with your model file
 import driving_data  # Import driving_data
+import argparse
 
 # Parameters
-learning_rate = 0.001
-batch_size = 32
-num_epochs = 10
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# Argument parser
+parser = argparse.ArgumentParser(description='Train a QuantumModel with custom parameters.')
+parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for the optimizer')
+parser.add_argument('--batch_size', type=int, default=32, help='Batch size for training')
+parser.add_argument('--num_epochs', type=int, default=1, help='Number of epochs for training')
+parser.add_argument('--model_name', type=str, default='model1', help='Name of the model to save')
+args = parser.parse_args()
 
+# Use arguments
+learning_rate = args.learning_rate
+batch_size = args.batch_size
+num_epochs = args.num_epochs
+model_name = args.model_name
+savedir= "models_saved/"+str(model_name)+ "__l"+ str(learning_rate)+ "bs"+ str(batch_size)+ "ne"+str(num_epochs)+ ".pth"
+
+print("Model initiating")
+print("Model Name: ", model_name)
+print("Saved at: ", savedir)
+print("Num Epochs: ", num_epochs)
+print("Batch Size: ", batch_size)
+print("Learning rate: ", learning_rate)
 # Initialize the model
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Device is: ", device)
+
+print("GPU Available : ", torch.cuda.is_available())
+
 model = QuantumModel().to(device)
 
 # Loss function and optimizer
@@ -46,4 +68,5 @@ for epoch in range(num_epochs):
             print(f'Epoch: {epoch + 1}, Batch: {i // batch_size + 1}, Loss: {running_loss / (i // batch_size + 1):.3f}')
 
 print('Finished Training')
-torch.save(model.state_dict(), 'quantum_model.pth')
+
+torch.save(model.state_dict(), savedir)
