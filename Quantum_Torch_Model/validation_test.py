@@ -9,10 +9,13 @@ import argparse
 parser = argparse.ArgumentParser(description='Run a QuantumModel with custom parameters.')
 parser.add_argument('--model_name', type=str, default='quantum_model1.pth', help='Model to run')
 parser.add_argument('--threshold', type=float, default=1, help='Accuracy threshold for validation test')
+parser.add_argument('--batch_size', type=int, default=32, help='Batch size for training')
+
 args = parser.parse_args()
 
 model_name= "models_saved/" +args.model_name
 threshold= args.threshold
+batch_size1 = args.batch_size
 
 # Load the trained model
 model = QuantumModel()
@@ -28,7 +31,7 @@ accuracy_threshold = threshold  # Define your threshold here
 
 # Assuming driving_data has a method to load the validation batch
 num_val_images = driving_data.num_val_images  # replace with actual number of validation images
-batch_size = 32  # or any other batch size you want to use
+batch_size = batch_size1  # or any other batch size you want to use
 
 total_loss = 0.0
 correct_predictions = 0
