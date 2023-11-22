@@ -19,7 +19,7 @@ batch_size1 = args.batch_size
 
 # Load the trained model
 model = QuantumModel()
-model.load_state_dict(torch.load('models_saved/quantum_model1.pth'))
+model.load_state_dict(torch.load(model_name))
 model.eval()  # Set the model to evaluation mode
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
