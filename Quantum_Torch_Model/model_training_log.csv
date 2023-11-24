@@ -1,3 +1,12 @@
 model_name,savedir,num_epochs,batch_size,learning_rate,average_loss,accuracy,threshold
 samplemodel,models_saved/samplemodel__l0.1bs100ne1.pth,1,100,0.1,0.2742990262870963,1.0,10.0
 samplemodel2,models_saved/samplemodel2__l0.1bs100ne1.pth,1,100,0.1,0.2787734017460489,1.0,10.0
+Model_Type_2_LRTests,models_saved/Model_Type_2_LRTests__l0.0001bs100ne30.pth,30,100,0.0001,0.16641303663561632,0.40186813186813186,0.1
+Model_Type_2_LRTests,models_saved/Model_Type_2_LRTests__l0.1bs100ne30.pth,30,100,0.1,0.30796777718997265,0.44560439560439563,0.1
+Model_Type_2_LRTests,models_saved/Model_Type_2_LRTests__l0.001bs100ne30.pth,30,100,0.001,0.290425259415265,0.4545054945054945,0.1
+Model_Type_2_LRTests,models_saved/Model_Type_2_LRTests__l1.0bs100ne30.pth,30,100,1.0,0.3275870961638597,0.19065934065934065,0.1
+Model_Type_2_LRTests,models_saved/Model_Type_2_LRTests__l0.01bs100ne30.pth,30,100,0.01,0.33445063470811637,0.44505494505494503,0.1
+Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs1000ne30.pth,30,1000,0.0001,0.19755501449108123,0.4653,0.1
+Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs10ne30.pth,30,10,0.0001,0.3009231700966641,0.45126512651265127,0.1
+Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs10000ne30.pth,30,10000,0.0001,0.36413270235061646,0.1759,0.1
+Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs1ne30.pth,30,1,0.0001,0.2795137106481941,0.45369452703446755,0.1

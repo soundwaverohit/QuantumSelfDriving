@@ -10,6 +10,7 @@ device = qml.device("default.qubit", wires=4)
 def quantum_circuit(inputs, weights):
     qml.templates.AngleEmbedding(inputs, wires=range(4))
     qml.templates.BasicEntanglerLayers(weights, wires=range(4))
+    qml.templates.AngleEmbedding(inputs, wires=range(4))
     return [qml.expval(qml.PauliZ(i)) for i in range(4)]
 
 # Wrap the quantum circuit in a qnode
