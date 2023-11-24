@@ -4,6 +4,7 @@ import numpy as np
 from quantum_torch_model import QuantumModel  # Replace with your model file
 import driving_data  # Import driving_data
 import argparse
+import pandas as pd
 
 # Parameters
 # Argument parser
@@ -42,7 +43,7 @@ optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 # Training loop
 model.train()
 for epoch in range(num_epochs):
-    running_loss = 0.0
+    running_loss= 0.0
     for i in range(0, driving_data.num_train_images, batch_size):
         # Load a batch of data
         batch_images, batch_angles = driving_data.LoadTrainBatch(batch_size)
