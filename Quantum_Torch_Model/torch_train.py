@@ -5,7 +5,7 @@ from quantum_torch_model import QuantumModel  # Replace with your model file
 import driving_data  # Import driving_data
 import argparse
 import pandas as pd
-
+import os
 # Parameters
 # Argument parser
 parser = argparse.ArgumentParser(description='Train a QuantumModel with custom parameters.')
@@ -71,3 +71,19 @@ for epoch in range(num_epochs):
 print('Finished Training and saved at: ', savedir)
 
 torch.save(model.state_dict(), savedir)
+
+
+# CSV Logging
+import csv
+log_fields = ['model_name', 'savedir', 'num_epochs', 'batch_size', 'learning_rate']
+log_data = [model_name, savedir, num_epochs, batch_size, learning_rate]
+
+# Check if file exists
+file_exists = os.path.isfile('model_training_log.csv')
+
+# Write to CSV
+with open('model_training_log.csv', 'a', newline='') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=log_fields)
+    if not file_exists:
+        writer.writeheader()
+    writer.writerow({field: data for field, data in zip(log_fields, log_data)})

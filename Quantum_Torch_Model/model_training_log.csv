@@ -1,0 +1,3 @@
+model_name,savedir,num_epochs,batch_size,learning_rate,average_loss,accuracy,threshold
+samplemodel,models_saved/samplemodel__l0.1bs100ne1.pth,1,100,0.1,0.2742990262870963,1.0,10.0
+samplemodel2,models_saved/samplemodel2__l0.1bs100ne1.pth,1,100,0.1,0.2787734017460489,1.0,10.0

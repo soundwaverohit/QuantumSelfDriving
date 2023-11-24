@@ -63,3 +63,40 @@ accuracy = correct_predictions / (num_batches * batch_size)
 print("For model Name: ", model_name)
 print(f'Average Validation Loss: {average_loss:.4f}')
 print(f'Validation Accuracy: {accuracy:.4f}')
+
+# CSV Logging
+import csv
+
+# Define the fields to update
+update_fields = ['average_loss', 'accuracy', 'threshold']
+
+# Read existing data
+rows = []
+try:
+    with open('model_training_log.csv', 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        rows = [row for row in reader]
+
+    model_found = False
+    # Update the specific row
+    for row in rows:
+        if row['savedir'] == model_name:
+            row['average_loss'] = str(average_loss)  # Ensure conversion to string
+            row['accuracy'] = str(accuracy)          # Ensure conversion to string
+            row['threshold'] = str(threshold)        # Ensure conversion to string
+            model_found = True
+            break
+
+    if not model_found:
+        print(f"Model {model_name} not found in CSV file.")
+
+    # Write updated data
+    with open('model_training_log.csv', 'w', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=reader.fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+except FileNotFoundError:
+    print("CSV file not found. Please check the file path.")
+except Exception as e:
+    print(f"An error occurred: {e}")
