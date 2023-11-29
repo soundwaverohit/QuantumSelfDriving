@@ -10,3 +10,7 @@ Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs1000ne30.pth,30
 Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs10ne30.pth,30,10,0.0001,0.3009231700966641,0.45126512651265127,0.1
 Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs10000ne30.pth,30,10000,0.0001,0.36413270235061646,0.1759,0.1
 Model_Type_2_BSTests,models_saved/Model_Type_2_BSTests__l0.0001bs1ne30.pth,30,1,0.0001,0.2795137106481941,0.45369452703446755,0.1
+model1rep,models_saved/model1rep__l0.0001bs100ne30.pth,30,100,0.0001,0.3413164026134617,0.2398901098901099,0.1
+model2rep,models_saved/model2rep__l0.0001bs100ne30.pth,30,100,0.0001,0.28349334738411747,0.18956043956043955,0.1
+model3,models_saved/model3__l0.0001bs100ne30.pth,30,100,0.0001,0.1811575453196253,0.9718681318681318,1.0
+model4rep,models_saved/model4rep__l0.0001bs100ne30.pth,30,100,0.0001,0.1884151449897787,0.9697802197802198,1.0
