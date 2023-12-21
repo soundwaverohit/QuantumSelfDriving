@@ -15,3 +15,4 @@ model2rep,models_saved/model2rep__l0.0001bs100ne30.pth,30,100,0.0001,0.283493347
 model3,models_saved/model3__l0.0001bs100ne30.pth,30,100,0.0001,0.1811575453196253,0.9718681318681318,1.0
 model4rep,models_saved/model4rep__l0.0001bs100ne30.pth,30,100,0.0001,0.1884151449897787,0.9697802197802198,1.0
 model1,models_saved/model1__l0.001bs32ne1.pth,1,32,0.001
+model1,models_saved/model1__l0.001bs32ne1.pth,1,32,0.001
